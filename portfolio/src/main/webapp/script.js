@@ -28,8 +28,31 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-async function getDataServlet(){
+/*async function getDataServlet(){
     const response = await fetch('/data');
     const addDataToDom = await response.text();
     document.getElementById('welcome-container').innerText = addDataToDom;
+}
+*/
+function hello() {
+    fetch('/data').then(response => response.json()).then((message) => {
+        const messageListElement = document.getElementById('message-container');
+            messageListElement.innerHTML = ' ';
+            messageListElement.appendChild(
+                createListElement("name: " + message[0]));
+            messageListElement.appendChild(
+                createListElement("hometown: " + message[1]));
+                messageListElement.appendChild(
+                createListElement("home state: " + message[2]));
+             
+    });
+            console.log(message[1]);
+            console.log(message[2]);
+            console.log(message[0]);   
+}
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
