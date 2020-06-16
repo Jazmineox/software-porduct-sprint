@@ -13,44 +13,58 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
-
+import java.util.ArrayList;
+import java.util.List;
+import com.google.gson.Gson;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import com.google.gson.Gson;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    private ArrayList<String> personalMessage = new ArrayList<String>();
+    private ArrayList<String> comments = new ArrayList<String>();
 
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-      
     
-    // Create & initialize Array list
-    personalMessage.add("Jazmine");
-    personalMessage.add("Dover");
-    personalMessage.add("Delaware!!");
-    
-    // Conver to JSON
-    String json = convertToJsonUsingGson(personalMessage);
-    
-    //Send JSON as response
-    response.setContentType("applcation/json;");
-    response.getWriter().println(json);
 
+    response.setContentType("application/json;");
+    Gson gson = new Gson();
+    String json = gson.toJson(comments);
+    response.getWriter().println(json);
+    
   }
 
-    //converToJson Function
-  private String convertToJsonUsingGson(ArrayList<String> messages){
-      Gson gson = new Gson();
-      String json = gson.toJson(messages);
-      return json;
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+      String comment = getParameter(request, "comment", "");
+      String name = getParameter(request, "name", "");
+
+      response.setContentType("text/html");
+      comments.add(name);
+      comments.add(comment);
+
+      
+      response.getWriter().println(name);
+      response.getWriter().println(comment);
+       response.sendRedirect("index.html");
+    }
+
+   /**
+   * @return the request parameter, or the default value if the parameter
+   *         was not specified by the client
+   */
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 }

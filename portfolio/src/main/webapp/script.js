@@ -34,25 +34,20 @@ function addRandomGreeting() {
     document.getElementById('welcome-container').innerText = addDataToDom;
 }
 */
-function hello() {
-    fetch('/data').then(response => response.json()).then((message) => {
-        const messageListElement = document.getElementById('message-container');
-            messageListElement.innerHTML = ' ';
-            messageListElement.appendChild(
-                createListElement("name: " + message[0]));
-            messageListElement.appendChild(
-                createListElement("hometown: " + message[1]));
-                messageListElement.appendChild(
-                createListElement("home state: " + message[2]));
-             
+function getComment() {
+    fetch('/data').then(response => response.json()).then((comment) => {
+        const messageList= document.getElementById('response');
+            console.log(comment);
+
+        comment.forEach((com) => {messageList.appendChild(createListElement(com));
+        });
     });
-            console.log(message[1]);
-            console.log(message[2]);
-            console.log(message[0]);   
 }
+
 
 function createListElement(text) {
   const liElement = document.createElement('li');
   liElement.innerText = text;
   return liElement;
 }
+

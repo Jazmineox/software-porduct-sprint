@@ -13,7 +13,6 @@
     <div id="content">
       <h1>Jazmine's Portfolio</h1>
       <p>Hello! My name is Jazmine Bullock.</p>
-      <p>Click here to get a welcome message!</p>
       <p><img src="images/pic-1.jpg" alt = "hey!" id = "smile"></p>
           <p>I am a Computer Science student at North Carolina A&T University.</p>
           <p>I also am in the Blue and Gold marching machine! Go piccolos!</p>
@@ -31,14 +30,29 @@
       <p>Click here to get a random quote from Avatar: The Last Air Bender:</p>
       <button onclick="addRandomGreeting()">Click here!</button>
       <div id="greeting-container"></div>
+      
+      <div class = "comment Forum">
+      <form action="/data" method="POST">
+      <h3>Comment Section</h3>
+      <p>Leave your name and a comment you want to share!</p>
+      <label for = "name" style="display:block";> Name: </label>
+       <div id = 'nameHolder'>
+        <input type="text" id = "name" name="name" placeholder="Your name">
+        <label for = "comment" style="display:block">Comment:</label>
+        <div id "textareaHolder">
+         <textarea id="comment" name="comment" placeholder="Add a comment!"></textarea>
+        </div>
+        <input type="submit" value="Submit"></input>
+          </div>
+    </form>
+      </div>
+      <button onclick="getComment()"> Show comments </button>
+      <div id = "response"></div>
       <h2>My Links</h2>
       <p><a href="https://www.linkedin.com/in/jbullockjazmine">LinkedIn</a></p>
       <p><a href="https://www.github.com/Jazmineox">github</a></p>
       <p>Make sure to connect with me on LinkedIn and follow me on Github!</p>
-      <h3>Comment Section</h3>
-      <p>Add some comments my Portfolio!</p>
-      <button onclick = "hello()">Click me!</button>
-      <div id = "message-container"></div>
+       
       
 
 
