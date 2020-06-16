@@ -32,22 +32,17 @@
       <div id="greeting-container"></div>
       
       <div class = "comment Forum">
-      <form action="/data" method="POST">
+      <body onload="loadComments()">
       <h3>Comment Section</h3>
-      <p>Leave your name and a comment you want to share!</p>
-      <label for = "name" style="display:block";> Name: </label>
-       <div id = 'nameHolder'>
-        <input type="text" id = "name" name="name" placeholder="Your name">
-        <label for = "comment" style="display:block">Comment:</label>
-        <div id "textareaHolder">
-         <textarea id="comment" name="comment" placeholder="Add a comment!"></textarea>
-        </div>
-        <input type="submit" value="Submit"></input>
-          </div>
-    </form>
+      <form action="/data" method="POST">
+      <p>Leave your acomment you want to share!</p>
+     <input type="text" name="text-field" id = "textfield" required />
+     <br/>
+          <button id="sub" type="submit" value='Submit'>Submit</button>
+        </form>
+       <button class="case" onclick="displayComments()">Display comments</button>
+      <ul id = "history"></ul> 
       </div>
-      <button onclick="getComment()"> Show comments </button>
-      <div id = "response"></div>
       <h2>My Links</h2>
       <p><a href="https://www.linkedin.com/in/jbullockjazmine">LinkedIn</a></p>
       <p><a href="https://www.github.com/Jazmineox">github</a></p>
