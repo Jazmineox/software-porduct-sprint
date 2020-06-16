@@ -28,8 +28,58 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-async function getDataServlet(){
+/*async function getDataServlet(){
     const response = await fetch('/data');
     const addDataToDom = await response.text();
     document.getElementById('welcome-container').innerText = addDataToDom;
+}
+*/
+/*function getComment() {
+    fetch('/data').then(response => response.json()).then((comment) => {
+        const messageList= document.getElementById('response');
+            console.log(comment);
+
+        comment.forEach((com) => {messageList.appendChild(createListElement(com));
+        });
+    });
+}
+
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}*/
+function loadComments() {
+  fetch('/data').then(response => response.json()).then((comments) => {
+    const commentElement = document.getElementById('history');
+    comments.forEach((comment) => {
+      commentElement.appendChild(creatCommentElement(comment));
+    })
+  });
+}
+
+/** Creates an element that represents a comment */
+function createCommentElement(comment) {
+  const commentElement = document.createElement('li');
+  commentElement.className = 'comment';
+
+  const spanElement = document.createElement('span');
+  spanElement.innerText = comment.text;
+
+  commentElement.appendChild(spanElement);
+  return commentElement;
+
+}
+
+
+var tap = 0;
+function displayComments(){
+    tap += 1;
+    var comment = document.getElementById('history');
+    if(comment.style.display === "none" || tap == 1) {
+        comment.style.display = "block";
+    } else {
+        comment.style.display = "none";
+    }
 }

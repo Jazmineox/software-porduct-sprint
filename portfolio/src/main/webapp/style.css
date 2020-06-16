@@ -7,3 +7,33 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+#smile {
+        width: 300px;
+        height: auto;
+    }
+    #picture1{
+        width: auto;
+        height: 250px;
+    }
+    #picture2{
+        width: auto;
+        height: 250px;
+    }
+    #picture3{
+        width: 200px;
+    }
+    #picture4{
+        width: 200px;
+    }
+    #picture5{
+        width: 200px;
+    }
+    #book{
+        width: auto;
+        height: 200px;
+    }
+    #tvshow{
+        width: auto;
+        height: 200px;
+    }

@@ -6,46 +6,13 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     
-    <style type = "text/css">
-    #smile {
-        width: 300px;
-        height: auto;
-    }
-    #picture1{
-        width: auto;
-        height: 250px;
-    }
-    #picture2{
-        width: auto;
-        height: 250px;
-    }
-    #picture3{
-        width: 200px;
-    }
-    #picture4{
-        width: 200px;
-    }
-    #picture5{
-        width: 200px;
-    }
-    #book{
-        width: auto;
-        height: 200px;
-    }
-    #tvshow{
-        width: auto;
-        height: 200px;
-    }
-    </style>
+    <style type = "text/css"></style>
 
   </head>
   <body>
     <div id="content">
       <h1>Jazmine's Portfolio</h1>
       <p>Hello! My name is Jazmine Bullock.</p>
-      <p>Click here to get a welcome message!</p>
-          <button onclick = "getDataServlet()">Welcome!</button>
-          <div id = "welcome-container"></div>
       <p><img src="images/pic-1.jpg" alt = "hey!" id = "smile"></p>
           <p>I am a Computer Science student at North Carolina A&T University.</p>
           <p>I also am in the Blue and Gold marching machine! Go piccolos!</p>
@@ -63,10 +30,24 @@
       <p>Click here to get a random quote from Avatar: The Last Air Bender:</p>
       <button onclick="addRandomGreeting()">Click here!</button>
       <div id="greeting-container"></div>
+      
+      <div class = "comment Forum">
+      <body onload="loadComments()">
+      <h3>Comment Section</h3>
+      <form action="/data" method="POST">
+      <p>Leave your acomment you want to share!</p>
+     <input type="text" name="text-field" id = "textfield" required />
+     <br/>
+          <button id="sub" type="submit" value='Submit'>Submit</button>
+        </form>
+       <button class="case" onclick="displayComments()">Display comments</button>
+      <ul id = "history"></ul> 
+      </div>
       <h2>My Links</h2>
       <p><a href="https://www.linkedin.com/in/jbullockjazmine">LinkedIn</a></p>
       <p><a href="https://www.github.com/Jazmineox">github</a></p>
       <p>Make sure to connect with me on LinkedIn and follow me on Github!</p>
+       
       
 
 
